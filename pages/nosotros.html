@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -38,15 +38,15 @@
         </nav>
     </header>
     <main>
-        <section class="backgroun-gris">
+        <section class="backgroun-gris ">
             <div class="container group">
-                <article class="col-md-6">
+                <article class="col-md-6 FadeInRight">
                     <iframe width="763" height="429" src="https://www.youtube.com/embed/3mC_jWTvbts"
                         title="Centro Médico Digital" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </article>
-                <article class="col-md-6">
+                <article class="col-md-6 FadeInLeft">
                     <div>
                         <h3>ATENCIÓN PERSONALIZADA
                         </h3>
@@ -72,7 +72,7 @@
             </div>
         </section>
 
-        <section class="container">
+        <section class="container paused FadeInDown">
 
             <article class="col-md-6">
                 <h1 class="titulo">QUIENES SOMOS
@@ -103,12 +103,12 @@
                     </p>
                 </article>
                 <article class="col-md-6">
-                    <img src="../img/fachada-02.jpg" alt="fachada">
+                    <img class="scale" src="../img/fachada-02.jpg" alt="fachada">
                 </article>
             </article>
         </section>
-        <section id="valores" class="backgroun-gris">
-            <div class="container">
+        <section id="valores" class="backgroun-gris paused">
+            <div class="container FadeInDown">
                 <h1 class="titulo">NUESTOS VALORES</h1>
                 <div class="group">
                     <article class="col-md-4">
@@ -197,6 +197,26 @@
             </div>
         </div>
     </footer>
+    <script>
+
+        function isVisible(elm) {
+            var rect = elm.getBoundingClientRect();
+            var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+            return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+        }
+
+
+        window.addEventListener('DOMContentLoaded', (ev0) => {
+
+            window.addEventListener('scroll', (ev1) => {
+
+                document.querySelectorAll(".paused").forEach(elm => {
+                    if (isVisible(elm))
+                        elm.classList.remove("paused");
+                })
+            });
+        });
+    </script>
 </body>
 
 </html>
